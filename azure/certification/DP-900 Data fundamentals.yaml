@@ -1,0 +1,646 @@
+Link: https://learn.microsoft.com/en-us/training/challenges?id=be6235e5-c168-4993-b1bb-e53bade5ddee&wt.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee_30dtli_email_wwl
+
+Explore core data concepts
+https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/?WT.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee
+
+    Unit 1: Introduction
+        - Identify common data formats
+        - Describe options for storing data in files
+        - Describe options for storing data in databases
+        - Describe characteristics of transactional data processing solutions
+        - Describe characteristics of analytical data processing solutions
+
+    Unit 2: Identify data formats
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/2-data-formats
+
+        Data is a collection of facts.
+        Entities represent important data to an organization.
+        Each entity has one or more attributes. E.g: Customer table has name, address, etc.
+
+        Data is classified as structured, semi-structured, or unstructured.
+
+        1. Structured Data
+            - Fixed schema: All the data has the same fields or properties.
+            - Tabular: Normally the structured schema.
+            - Data is often stored in a database with multiple tables linked by key values in a
+                relational model.
+        2. Semi-structured Data
+            - Flexible schema: Has some structure, but allows variation. E.g: some customers may
+                have multiple phone numbers and none at all.
+            - JSON format: Commonly used.
+        3. Unstructured Data
+            - Data doesn't follow a pattern.
+            - Documents, images, audio, video data are examples of an unstructured format.
+
+    Unit 3: Explore file storage
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/3-file-storage
+        
+        Common file formats
+
+        1. Delimited text files
+            - The most common format
+            - Usually separated by commas
+            - Good choice for structured data
+        2. JSON
+            - Define multiple attributes
+            - Good for structured and semi-structured data
+        3. XML
+            - Human-readable data popular in the 90s and 2000s
+        4. Binary Large Object (BLOB)
+            - Stored in binary mode (1's and 0's)
+            - It contains images, video, audio, and application-specific documents.
+        5. Optimized file formats
+            - Avro:
+                - Row-based format
+                - Created by Apache
+                - Each record contains a header that describes the structure of the data
+                - Header is stored as JSON while the data as binary information
+                - The application uses the info in the header to parse the binary data
+                - Good format for compressing data and minimizing storage
+            - ORC (Optimized Row Columnar format):
+                - Organizes data into columns rather than rows
+                - Developed by HortonWorks
+                - Optimized for reading and writing operations in Apache Hive
+                - The file contains stripes of data in which they hold the data for a column or set of column
+                - A stripe contains an index into the rows 
+            - Parquet:
+                - Another columnar data format
+                - Made by Cloudera and Twitter
+                - Contain row groups
+                - Include metadata
+                - Applications use the metadata to quickly find the correct chunk of rows
+                - Specialized in storing and processing nested data efficiently
+                - Support very efficient compression and encoding schemes
+
+    Unit 4: Explore databases
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/4-databases
+
+        A database is a central system that stores data and is accessed by queries.
+
+        1. Relational databases
+            - Used to store structured data.
+            - Entities holds the stored data
+            - Primary key (PK) Identify uniquely each instance of an entity
+            - Normalized data
+        2. Non-relational databases
+            - Don't apply a relational schema to the data
+            - 4 types of Non-relational database:
+                4.1 Key-value db: Consist of a unique key and an associated value. Can be in any value
+                4.2 Document db: Specific form of key-value db. The value is a JSON document
+                4.3 Column family db: Tabular data, but can divide the columns into groups aka column-families
+                4.4 Graph db: Store entities as nodes with links to define the relationship between them
+    
+    Unit 5: Explore transactional data processing
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/5-transactional-data-processing
+
+        Transactional system records transactions which are specific events.
+        High-volume of data and needs to be accessible very quickly
+        Often referred as Online Transactional Processing (OLTP)
+
+        OLTP relies on databases that are good for both reading and writing.
+        Always associated to CRUD operations
+        OLTP enforces transactions on ACID semantics:
+            1. Atomicity: Each transaction is treated as a single unit, which succeeds or fails completely
+            2. Consistency: Can only take the data in the database from one valid state to another
+            3. Isolation: Concurrent transactions cannot interfere with one another. Must result in a 
+                consistent state.
+            4. Durability: When a transaction has been committed, it'll remain committed.
+
+        OLTP systems are typically used to support live applications that process business data - often 
+            referred to as line of business (LOB) applications.
+
+    Unit 6: Explore analytical data processing
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-core-data-concepts/6-analytical-processing
+
+        Analytical data typically uses read-only (or mostly) systems.
+        Always related to vast volumes of historical data or business metrics.
+
+        1. Data lakes: Common large-scale data analytical processing scenarios
+        2. Data warehouse: Store data in a relational schema optimized for read operations
+        3. Data Lakehouses: Combine the flexible and scalable storage of a data lake
+            with the relational querying semantics of a data warehouse
+
+
+Explore data roles and services
+https://learn.microsoft.com/en-us/training/modules/explore-roles-responsibilities-world-of-data/?WT.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee
+
+    Unit 1: Introduction
+        - Identify common data professional roles
+        - Identify common cloud services used by data professionals
+
+    Unit 2: Explore job roles in the world of data
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-roles-responsibilities-world-of-data/2-explore-job-roles
+
+        Three key job roles:
+            1. Database administrators: manage dbs, assign permissions, store and restore backup copies
+            2. Data engineers: manage infrastructure, process data across the organization, apply cleaning routines
+                identify data governance rules, implement pipelines to move and transform data between systems
+            3. Data analysts: Explore and analyze data to create visualizations and charts
+
+    Unit 3: Identify data services
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-roles-responsibilities-world-of-data/3-data-services
+
+            Azure SQL -> Collective name for a family of relational databases solutions:
+                1. Azure SQL Database: Fully managed PaaS db
+                2. Azure SQL Managed Instance: Instance of the SQL Server. More administrative responsibility
+                3. Azure SQL VM: Virtual machine with an installation of SQL Server
+
+                DB Admin typically provision and manage Azure SQL db systems to support line of business (LOB)
+                DE use SQL db systems for creating pipelines to perform ETL operations
+                DAnalysts query SQL dbs directly to create reports, dashboards for analytical purposes
+
+                Azure SQL Database is a serverless platform as a service (PaaS) SQL instance.
+                SQL Managed Instance is a PaaS service, but databases are maintained in the same SQL Managed Instance cluster.
+                SQL Server on Azure Virtual Machines running Windows or Linux are not serverless options.
+
+                SQL Managed Instance allows you to migrate an entire SQL server to the cloud without requiring that you manage the infrastructure
+                    after the migration.
+                You must manage all aspects of SQL Server on Azure Virtual Machines.
+                Azure SQL Database supports most, but not all, core database-level capabilities of SQL Server.
+
+            Azure DB for open-source relational databases -> Include managed services for popular open-source dbs:
+                1. Azure DB for MySQL: Commonly used in Linux, Apache, MySQL, and PHP stacks apps
+                2. Azure DB for MariaDB
+                3. Azure DB for PostgreSQL
+
+            Azure Cosmos DB -> NoSQL db
+
+            Azure Storage -> core Azure service:
+                1. Blob containers: Scalable, cost-effective storage for binary files
+                2. File shares: network file shares
+                3. Tables: key-value storage
+
+            Azure Data Factory -> Enable to create pipelines and schedule them. Used to ETL operations
+
+            Azure Synapse Analytics -> PaaS service to analytical purposes
+                1. Pipelines: Same technology as ADF
+                2. SQL: Highly scalable SQL db engine. Optimized for data warehouse workloads
+                3. Apache Spark: Open-source distributed data processing system
+                4. Azure Synapse Data Explorer: High-performance data analytics solution. Used for real-time
+                    querying of log and telemetry data using Kusto Query Language (KQL)
+
+            Azure Databricks -> Azure-integrated version of the Databricks:
+                - Combine Apache Spark with SQL db semantics to enable large-scale data analytics
+                - DE creates analytical data
+                - DAnalysts uses native notebook to query and visualize data
+
+            Azure HDInsight -> Service that provides Azure-hosted cluster for popular Apache solutions:
+                1. Apache Spark
+                2. Apache Hadoop: MapReduce
+                3. Apache HBase: NoSQL solution
+                4. Apache Kafka: Message broker
+
+            Azure Stream Analytics -> Real-time stream processing engine
+
+            Azure Data Explorer -> Standalone service that offers the same solution as
+                the Azure Synapse Data Explorer
+
+            Microsoft Purview -> Service for data governance and discoverability
+
+            Microsoft Fabric -> SaaS analytics platform:
+                1. Data ingestion and ETL
+                2. Data lakehouse analytics
+                3. Data warehouse analytics
+                4. Data Science and machine learning
+                5. Real-time analytics
+                6. Data visualization
+                7. Data governance and management
+
+
+Explore fundamental relational data concepts
+https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/?WT.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee
+
+    Unit 1: Introduction
+        - Identify characteristics of relational data
+        - Define normalization
+        - Identify types of SQL statement
+        - Identify common relational database objects
+
+    Unit 2: Understand relational data
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/2-understand-relational-data
+
+        Relational tables are a format for structured data
+
+    Unit 3: Understand normalization
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/3-normalization
+
+        Normalization is the process that minimizes data duplication and enforce data integrity
+
+        Simple definition for Fn's:
+            1. Separate each entity into its own table
+            2. Separate each discrete attribute into its own column
+            3. Uniquely identify each entity instance (row) using a primary key
+            4. Use foreign key columns to link related entities
+
+    Unit 4: Explore SQL
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/4-query-with-sql
+
+        SQL -> Structured Query Language
+
+        SQL statement types
+            1. Data Definition Language (DDL)
+                Used to create, modify, and remove tables and other objects in a db
+                Statements:
+                    - Create: Create a new object in the db
+                    - Alter: Modify the structure of an object
+                    - Drop: Remove an object from the db
+                    - Rename: Rename an existing object
+            2. Data Control Language (DCL)
+                Used to manage access to objects in a db
+                Statements:
+                    - Grant: Grant permission to perform specific actions
+                    - Deny: Deny permission to perform specific actions
+                    - Revoke: Remove a previously granted permission
+            3. Data Manipulation Language (DML)
+                Used to manipulate the rows in tables
+                Statements:
+                    - Select: Read rows from a table
+                    - Insert: Insert new rows into a table
+                    - Update: Modify data in existing rows
+                    - Delete: Delete existing rows
+
+    Unit 5: Describe database objects
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-relational-data-offerings/5-database-objects
+
+        View: Virtual table based on the results of a SELECT query.
+        Stored procedure: SQL statements that will run on a command. Used to encapsulate programmatic logic
+        Index: Help to search for data in a table
+
+
+Explore relational database services in Azure
+https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-relational-database-offerings-azure/
+
+    Unit 1: Introduction
+        - Identify options for Azure SQL services
+        - Identify options for open-source databases in Azure
+        - Provision a database service on Azure
+
+    Unit 2: Describe Azure SQL services and capabilities
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-relational-database-offerings-azure/2-azure-sql
+
+        Azure SQL is a collective term for SQL Server services. It includes:
+            1. SQL Server on Azure Virtual Machines (VMs): IaaS solution that virtualizes the SQL Server
+            2. Azure SQL Managed Instance: PaaS solution providing compatibility with on-premises SQL Server
+                Include automated software update management, backups, and other maintenance tasks
+            3. Azure SQL Database: A fully Managed, highly scalable PaaS db service
+            4. Azure SQL Edge: SQL engine optimized for IoT streaming time-series data scenarios
+
+        Compare Azure SQL services
+
+            1. SQL Server on Azure VMs
+                Type of cloud service: IaaS
+                SQL Server compatibility: Fully compatible with on-premises physical and 
+                    virtualized installations. "Lift and shift"
+                Architecture: Installed in a VM. Can support multiple dbs
+                Availability: 99.99%
+                Management: Manage all aspects of the server, including operating system and SQL Server
+                    updates, configuration, backups, and other maintenance tasks
+                Use cases: You need to migrate or extend an on-premises SQL Server solution and retain
+                    full control over all aspects of server and db config
+
+            2. Azure SQL Managed Instance
+                Type of cloud service: PaaS
+                SQL Server compatibility: Near-100%. Most on-premises dbs can be migrated with minimal
+                    code changes by using Azure Database Migration Service
+                Architecture: Can support multiple dbs. Instance pools can be used to share resources
+                Availability: 99.99%
+                Management: Fully automated updates, backups, and recovery
+                Use cases: Used for most cloud migration scenarios
+
+            3. Azure SQL Database
+                Type of cloud service: PaaS
+                SQL Server compatibility: Most core db-level capabilities of SQL Server
+                Architecture: Provision a single db in a dedicated server. Can use an elastic pool
+                    to share resources across multiple dbs
+                Availability: 99.995%
+                Management: Fully automated updates, backups, and recovery
+                Use cases: Used for new cloud solutions, or to migrate applications that have minimal
+                    instance-level dependencies.
+
+    Unit 3: Describe Azure services for open-source databases
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-relational-database-offerings-azure/3-azure-database-open-source
+
+        MySQL:
+            - Open source leader for Linux, Apache, MySQL, and PHP stack apps
+        
+        MariaDB:
+            - Created by the original developers of MySQL
+            - Support for temporal data
+
+        PostgreSQL:
+            - Hybrid relational-object db
+            - Accept non-relational properties
+
+        Azure DB for MySQL:
+            - PaaS service
+            - High availability
+            - Easy scaling
+            - Secure data
+            - Automatic backups and point-in-time restore for the last 35 days
+            - Enterprise-level security and compliance with legislation
+
+        Azure DB for MariaDB:
+            - PaaS service
+            - Built-in high availability
+            - Predictable performance
+            - Scaling as needed
+            - Secured protection
+            - Automatic backups and point-in-time restore for the last 35 days
+            - Enterprise-level security and compliance with legislation
+
+        Azure DB for PostgreSQL:
+            - PaaS service
+            - Some on-premises features are not enabled in Azure
+            - Azure DB for PostgreSQL Flexible Server -> Fully managed db service providing high level of control and server configuration
+
+Explore Azure Storage for non-relational data
+https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-non-relational-data-services-azure/1-introduction
+        
+    Unit 1:
+        - Describe features and capabilities of Azure blob storage
+        - Describe features and capabilities of Azure Data Lake Gen2
+        - Describe features and capabilities of Azure file storage
+        - Describe features and capabilities of Azure table storage
+        - Provision and use an Azure Storage account
+
+    Unit 2: Explore Azure blob storage
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-non-relational-data-services-azure/2-azure-blob-storage
+
+        Azure Blob Storage stores massive amounts of unstructured data as binary large objects (Blobs)
+        Blobs are stored in containers
+        Support three different types of blob:
+            1. Block blobs: Set of blocks. Each block can vary in size, up to 4000 MiB. Best used to store discrete, large,
+                binary objects that change infrequently.
+            2. Page blobs: Organized as a collection of fixed size 512-byte pages. Use page blobs to implement virtual disk storage for VM.
+                Random access and used for VDHs
+            3. Append blobs: Block blob optimized to support append operations. Updating and Deleting existing blocks isn't supported.
+                Max size is 195GB
+
+        Blob storage provides three access tiers:
+            1. Hot tier: Frequent accessed data
+            2. Cool tier: Infrequently accessed data
+            3. Archive tier: Lowest storage cost. Good for storing historical data
+
+        It's possible to create lifecycle management policies to move data through the tiers
+
+    Unit 3: Explore Azure DataLake Storage Gen2
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-non-relational-data-services-azure/3-azure-data-lake-gen2
+
+        Azure DataLake Storage Gen1: Separate service for hierarchical data storage for analytical data lakes.
+        Azure DataLake Storage Gen2: New version of this service that is integrated into Azure Storage.
+
+        Enable Hierarchical Namespace to create a Gen2 system. Can't revert it once changed.
+
+    Unit 4: Explore Azure Files
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-non-relational-data-services-azure/4-azure-files
+
+        Solution to create cloud-based network shares. Same idea as on-premises organizations
+        Eliminate hardware costs and maintenance overhead
+        Provide high availability and scalable cloud storage for files
+
+        Max size of a single file is 1TB
+        Support up to 2000 concurrent connections per shared file
+
+        Azure File Storage offers two performance tiers:
+            1. Standard tier: Uses hard disk-based hardware in a datacenter
+            2. Premium tier: Uses solid-state disks
+
+        Azure File supports two common network file sharing protocols:
+            1. Server Message Block (SMB): Used across multiple operating systems (Windows, Linux, macOS)
+            2. Network File System (NFS): Used by some Linux and macOS versions. Must use a premium tier
+    
+    Unit 5: Explore Azure Tables
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-provision-deploy-non-relational-data-services-azure/5-azure-tables
+
+        Azure Table Storage is a NoSQL solution that makes use of tables containing key/value.
+
+        It's possible to store semi-structured data.
+        All rows must have a unique key
+        Fast access by enabling partitions
+
+Explore fundamentals of Azure Cosmos DB
+https://learn.microsoft.com/en-us/training/modules/explore-non-relational-data-stores-azure/?WT.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee
+
+    Unit 1: Introduction
+        - Describe key features and capabilities of Azure Cosmos DB
+        - Identify the APIs supported in Azure Cosmos DB
+        - Provision and use an Azure Cosmos DB instance
+
+    Unit 2: Describe Azure Cosmos DB
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-non-relational-data-stores-azure/2-describe-azure-cosmos-db
+
+        Azure Cosmos DB:
+            - Foundational service in Azure
+            - Support multiple application programming interfaces (APIs)
+            - Use indexes and partitioning to provide fast read and write performance
+            - Scale massive volumes of data
+            - Enable multi-region writes to become globally distributed
+
+            When to use:
+                1. IoT and telematics: Large amounts of data
+                2. Retail and marketing: Data catalog
+                3. Gaming: DB needs to be fast and be able to massive spikes requests
+                4. Web and mobile applications: The Cosmos DB SDKs can be used
+
+Explore fundamentals of large-scale analytics
+https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/
+
+    Unit 1: Introduction
+        - Identify common elements of a large-scale data analytics solution
+        - Describe key features for data ingestion pipelines
+        - Identify common types of analytical data store
+        - Identify platform-as-a-service (PaaS) analytics services in Azure
+        - Provision Azure Synapse Analytics and use it to ingest, process, and query data
+        - Describe features of Microsoft Fabric - a software-as-a-service (SaaS) solution for data analytics
+        - Use Microsoft Fabric to ingest and analyze data
+
+    Unit 2: Describe data warehousing architecture
+        URL: https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/2-describe-warehousing
+
+        In general, the elements are:
+            1. Data ingestion and processing: ETL/ELT resulting in optimized data for analytical queries. Batch processing or Real-time processing
+            2. Analytical data store: Data Warehouse and Data lakes
+            3. Analytical data model: Cube format which are aggregated data
+            4. Data visualization: Reports, dashboards, etc
+
+    Unit 3: Explore data ingestion pipelines
+        URL: https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/3-data-ingestion-pipelines
+
+        Creation of pipelines that orchestrate ETL processes.
+        ADF, Azure Synapse Analytics or Fabric
+
+    Unit 4: Explore analytical data stores
+        URL: https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/4-analytical-data-stores
+
+        Data Warehouses:
+            - Relational db
+            - Optimized for data analytics rather than transactional workloads
+            - Data transformed into a schema
+            - Star schema and snowflake schema
+            - Great choice when you have transactional data that can be organized into a structured schema of tables
+
+        Data lakehouses:
+            - File store
+            - Dsitributed file system (Hadoop or Spark
+            - Often apply schema-on-read approach to define tabular schemas on semi-structured data files
+            - Great for supporting a mix of structured, semi-structured and unstructured data
+            - SQL Pools in Azure Synapse Analytics include PolyBase, which enables you to define external tables based on files in a data lake
+            - Synapse also supports a Lake Database approach in which you can use db templates to define the relational schema of your data warehouse
+
+    Unit 5: Explore platform-as-a-service (PaaS) solutions
+        URL: https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/4b-platform-services
+
+        Three main PaaS services:
+            1. Azure Synapse Analytics: End-to-end solution for large scale data analyitcs. Great choice to create a single, unified analytics solution
+            2. Azure Databricks: Comprehensive data analytics solution built on Apache Spark. Consider using as your analytical store. Multicloud env
+            3. Azure HDInsight: Supports multiple open-source data analytics cluster types. Also good to migrate on-premises Hadoop-based solution to the cloud
+
+    Unit 7: Explore Microsoft Fabric
+        URL: https://learn.microsoft.com/en-us/training/modules/examine-components-of-modern-data-warehouse/5b-fabric
+
+        SaaS solution. Sort of OneDrive for data.
+
+Explore fundamentals of real-time analytics
+https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/?WT.mc_id=cloudskillschallenge_be6235e5-c168-4993-b1bb-e53bade5ddee
+
+    Unit 1: Fundamentals
+        - Compare batch and stream processing
+        - Describe common elements of streaming data solutions
+        - Describe features and capabilities of Azure Stream Analytics
+        - Describe features and capabilities of Spark Structured Streaming on Azure
+        - Describe features and capabilities of realtime analytics in Microsoft Fabric
+
+    Unit 2: Understand batch and stream processing
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/2-batch-stream
+
+        Two general ways to process data:
+            1. Batch processing:
+                - Data are collected and stored before being processed together in a single operation
+                - You can process data based on scheduled time interval or triggered when a certain amount of data has arrived
+                Advantages:
+                    - Large volumes of data can be processed at once
+                    - Can schedule to run out of hours
+                Disadvantages:
+                    - Time delay between ingesting and getting the results
+                    - All the data must be good to go. Otherwise will result in errors, crashes etc
+            2. Stream processing:
+                - Data is constantly monitored and processed in real time as new data events occur
+                - Stream processing is ideal for time-critical operations
+
+        Difference between batch and streaming data:
+            1. Data scope:
+                - Batch: can process all the data in the dataset
+                - Stream: Typically only has access to the most recent data received
+            2. Data size:
+                - Batch: Suitable for handling large datasets efficiently
+                - Stream: Is intended for individual records or micro batches of few records
+            3. Performance:
+                - Batch: The latency is typically a few hours
+                - Stream: Occur in seconds or miliseconds
+            4. Analysis:
+                - Batch: Used to perform complex analytics
+                - Stream: Simple response functions, aggregates, or calculations
+    
+    Unit 3: Explore common elements of stream processing architecture
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/3-explore-common-elements
+        
+        General architecture for stream processing:
+            1. An event generates some data
+            2. Data is captured in a streaming source for processing. Simples cases use cloud data store or a table in a db. Robust solutions use a queue
+            3. Often processed by a perpetual query
+            4. Written to an output which may be a file, a db, real-time visual dashboard, etc
+
+        Real-time analytics in Azure:
+            1. Azure Stream Analyitcs: PaaS solution that you can use to define streaming jobs
+            2. Spark Sctructured Streaming: An open-source library that enables you to develop complex streaming solutions
+            3. Azure Data Explorer: A high-performance db and analytics service that is optimized for ingesting and querying batch or streaming data
+                with a time-series element
+
+        Sources for stream processing:
+            - Azure Event Hubs: A data ingestion service to manage queues of event data. Each event is processed in order, exactly once.
+            - Azure IoT Hub: A data ingestion service similar to Azure Event Hubs, but optimized for managing event data from IoT devices
+            - Azure Data Lake Store Gen 2: A highly scalable storage service that is often used in batch processing scenarios
+            - Apache Kafka: An open-source data ingestion solution. Can use Azure HDInsight to create a Kafka cluster
+
+        Sinks for stream processing:
+            - Azure Event Hubs: Used to queue the processed data for further downstream processing
+            - Azure Data Lake Store Gen 2 or Azure blob storage: Used to persist the processed results as a file
+            - Azure SQL Database or Azure Synapsse Analytics, or Azure Databricks: Used to persist the processed results in a database
+                table for querying and analysis
+            - Microsoft Power BI: Used to generate real time data visualizations in reports and dashboards
+
+    Unit 4: Explore Azure Stream Analytics
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/4-stream-analytics
+
+        Azure Stream Analytics is a service for complex event processing and analysis of streaming data. Used to:
+            - Ingest data from an input, e.g Azure Event Hub, Azure IoT Hub, or Azure Storage blob container
+            - Process the data by using query
+            - Write the results to an output, e.g Azure Data Lake Gen 2, Azure SQL DB, Azure Synapse Analytics, Azure functions
+                Azure Event Hub, Microsoft Power BI, or others
+
+        To use Azure Stream Analytics you need to create a Stream Analytics job
+        If the process is complex, create a Stream Analysis cluster
+
+    Unit 6: Explore Apache Spark on Microsoft Azure
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/6-spark-streaming
+
+        You can use Spark in:
+            - Azure Synapse Analytics
+            - Azure Databricks
+            - Azure HDInsight
+
+        Spark Structured Streaming:
+            - To process streaming data use Spark Structured Streaming library
+            - Grea choice for real-time analytics
+
+        Delta Lake:
+            - Open-source storage layer
+            - Adds support for transactional consistency, schema enforcement, and other common data warehousing
+            - Unifies storage for streaming and batch data
+            - Good solution when you need to abstract batch and stream processed data in a data lake behind a relational schema for
+                SQL-based querying and analysis
+
+    Unit 8: Explore Realtime Analytics in Microsoft Fabric
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-stream-processing/8-fabric-realtime-analytics
+
+        - Include native support for real-time data analytics
+        - Can use an eventstream to capture real-time event data and persist it in a Lakehouse or a KQL database
+
+Explore fundamentals of data visualization
+https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/
+
+    Unit 1: Introduction
+        - Describe a high-level process for creating reporting solutions with Microsoft Power BI
+        - Describe core principles of analytical data modeling
+        - Identify common types of data visualization and their uses
+        - Create an interactive report with Power BI Desktop
+
+    Unit 2: Describe Power BI tools and workflow
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/2-power-bi
+
+        Microsoft Power BI: Suite of tools and services that is used to build interactive data visualizations for business users
+        - Power BI Desktop is used to define analytical models.
+        - Phone App is used to view Power BI reports.
+        - Power BI Service is used to serve data.
+        - Data Factory is used to run ETL jobs.
+
+    Unit 3: Describe core concepts of data modeling
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/3-data-modeling
+
+        Analytical models: Structure data to support analysis
+        Models: Based on related tables of data and define the numeric values
+
+        Tables and schema:
+            - Dimension tables: entities you want to aggregate numeric measures
+            - Numeric measures are stored in Fact tables
+    
+    Unit 4: Describe considerations for data visualization
+        URL: https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/4-data-visualizations
+
+        Items offered:
+            1. Tables and text: Useful when numerous related values must be displayed
+            2. Bar and column charts: Compare numeric values for discrete categories
+            3. Line charts: Compare categorized values. Useful to examine trends, often over time
+            4. Pie charts: Categorized values as proportions of a total
+            5. Scatter plots: Compare two numeric measures and identify a relationship or correlation between them
+            6. Maps: Compare values for different geographic areas or locations
