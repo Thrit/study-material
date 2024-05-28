@@ -1,0 +1,94 @@
+dataContractSpecification: 0.9.3
+id: cardType-cardNumber-business
+info:
+  title: Data Structure data contract
+  version: 0.0.1
+  description: Data agreement to guarantee the integrity of the excel file during its consumption to Azure.
+  owner: Data Engineer team
+  contact: 
+    name: Matheus
+    email: dataengineer@email.com
+
+servers:
+  production:
+    type: sqlserver
+    host: fake-sqlserver.example.com
+    port: 1433
+    database: database
+    schema: dbo
+
+terms:
+  usage: The file will be used in our pipeline to be sent to the Azure SQL Database. The file aims to support the business teams during their data merge.
+  billing: free
+
+models:
+  teamStructure:
+    description: Table containing information of the company's area
+    type: table
+    fields:
+      idTeam:
+        $ref: '#/definitions/idTeam'
+        unique: true
+        primary: true
+      nameTeam:
+        type: varchar
+        description: Team's name.
+        example: Pricing Team
+
+definitions:
+  idTeam:
+    name: idTeam
+    title: Id Team
+    type: int
+    description: Team's id.
+    example: "1"
+    pii: false
+    classification: Internal Use Only
+
+examples:
+  - type: csv
+    model: teamStructure
+    description: An example of the file's content.
+    data: |-
+      idTeam,nameTeam
+      1,"Acturial Team"
+      2,"Pricing Team"
+      3,"Underwriting Team"
+
+servicelevels:
+  availability:
+    description: According to the Azure documents. The Azure SQL Server is available 24h
+    percentage: 99.9%
+  retention:
+    description: Data is retained for ten year according to the GDPR
+    period: P10Y
+    unlimited: false
+  latency:
+    description: Data is available within 1 hour after the pipeline is triggered
+    threshold: PT1H
+    processedTimestampField: orders.processed_timestamp
+  frequency:
+    description: Data is delivered once a day
+    type: batch
+    interval: daily
+  backup:
+    description: Data is backed up once a week, every Sunday at 0:00 UTC.
+    interval: weekly
+    recoveryTime: 24 hours
+    recoveryPoint: 1 week
+
+quality:
+  type: great-expectations
+  specification:
+    checks for teamStructure: |-
+      [
+          {
+              "expectation_type": "expect_table_row_count_to_be_between",
+              "kwargs": {
+                  "min_value": 10
+              },
+              "meta": {
+      
+              }
+          }
+      ]
