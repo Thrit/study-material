@@ -14,10 +14,11 @@ https://www.youtube.com/watch?v=U64NZ3DjsmI
     3. Predictive analytics
         - Predict upcoming events and future trends
         - Always relied on statistical algorithms
+        - Answer "What will happen?" question
     4. Prescriptive analytics
         - Provide suggestions and recommendations based on the insights gleaned from predictive
             analytics and historial trends
-        - Answer the "what will happen?" question while predictive answers how to respond
+        - Answer the "what actions should we take?" question while predictive answers how to respond
     5. Cognitive analytics
         - Related to unstructured data like images, audio files, plain text, social media posts, etc
         - Process large amounts of unstructured data
@@ -123,4 +124,16 @@ https://www.youtube.com/watch?v=7ppGWK_RJPc&t=655s
 
 Exam DP-900: Part 3: Real exam questions and answers with explanation| How to pass DP 900
 https://www.youtube.com/watch?v=eU8_hX1yX08
-    
+
+    Scatter: A chart that shows the relationship between two numerical values
+    Treemap: A chart of colored, nested rectangles that displays individual data points represented by the size and color of a relative rectangle
+    Key influencer: A chart that displays the major contributors of a selected result of value
+
+    Dataset: A representation of data structures within data stores
+    Linked service: The information used to connect to external resources
+    Pipeline: A logical grouping of activities that performs a unit of work and can be scheduled
+
+    File share: Similar to windows explorer where I can create folders and files
+
+Exam DP-900: Part 4: Real exam questions and answers with explanation| How to pass DP 900
+https://www.youtube.com/watch?v=GFurxlmLcCY
