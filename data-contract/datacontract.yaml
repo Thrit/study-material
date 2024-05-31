@@ -12,10 +12,11 @@ info:
 servers:
   production:
     type: sqlserver
-    host: fake-sqlserver.example.com
+    host: localhost
     port: 1433
-    database: database
+    database: master
     schema: dbo
+    driver: ODBC Driver 18 for SQL Server
 
 terms:
   usage: The file will be used in our pipeline to be sent to the Azure SQL Database. The file aims to support the business teams during their data merge.
@@ -66,7 +67,7 @@ servicelevels:
   latency:
     description: Data is available within 1 hour after the pipeline is triggered
     threshold: PT1H
-    processedTimestampField: orders.processed_timestamp
+    processedTimestampField: dbo.teamStructure
   frequency:
     description: Data is delivered once a day
     type: batch
@@ -80,7 +81,7 @@ servicelevels:
 quality:
   type: great-expectations
   specification:
-    checks for teamStructure: |-
+    orders: |-
       [
           {
               "expectation_type": "expect_table_row_count_to_be_between",
