@@ -192,3 +192,50 @@
 - Includes a fully managed backup service
 - Has built-in high availability
 - Uses Azure Advanced Threat Protection (ATP)
+
+Exam DP-900: Part 6: Real exam questions and answers with explanation | How to pass DP 900
+https://www.youtube.com/watch?v=1CKWectdPE4
+
+Availability zones:
+    - Separated datacenters within a region
+    - Close enough to have low-latency connections to other availability zones
+    - They are far enough from each to other to reduce outages and weather conditions negative effects
+    - Accessibility zones are physically separate locations in each Azure region that are tolerant of local errors.
+    - Provide redudancy
+
+Failover:
+    - Manage the replication and failover of databases to another Azure region.
+
+Azure Cosmos DB Table API supports a multi-master model over the Azure Table storage
+
+Primary purpose of a data warehouse is to provide answers to complex queries that rely on data from multiple sources
+
+Exam DP-900: Part 7: Real exam questions and answers with explanation| How to pass DP 900
+https://www.youtube.com/watch?v=7MLcK1t6P_o
+
+Column-family database is the low latency store type examples:
+    - Recommendations
+    - Personalization
+    - Sensor data
+    - Telemetry
+    - Messaging
+    - Social media analytics
+    - Web analytics
+    - Activity monitoring
+    - Weather and other time-series data
+
+OLTP workloads characterirstics:
+    - Heavy writes and moderate reads
+    - Schema on write
+    - Normalized data
+
+Microsoft SQL Server Management Studio (SSMS): A graphical tool for managing SQL Server on Azure SQL databases that supports access, configuration, management, and administration tasks
+Microsoft Visual Studio Code: A lightweight source code editor with an mssql extension that supports connections to SQL Server and a rich editing experience for T-SQL
+Microsoft Data Studio: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Microsoft Excel files
+Microsoft SQL Server Data Tools (SSDT): A development tool for building Azure SQL databases, Microsoft SQL Server relational databases, SQL Server Analysis Services (SSAS) data models, SQL Server Integration Services (SSIS) packages, and SQL Server Reporting Services (SSRS) reports
+
+Streaming workload:
+    - Sending telemtry data from edge devices (Microsoft Edge >> streaming service)
+
+DP-900: 80 Important Exam Practice Questions | Azure Data Fundamentals | PDFs (Exam Cram💡)
+https://www.youtube.com/watch?v=wi3PkLK_gNc&list=PL0AYtrUw-NRRVVTnRf0yi0AW-DvtLkaT2&index=8
