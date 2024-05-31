@@ -789,10 +789,6 @@ video {
   width: 58.333333%;
 }
 
-.w-72 {
-  width: 18rem;
-}
-
 .w-9\/12 {
   width: 75%;
 }
@@ -826,7 +822,8 @@ video {
 }
 
 .transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) 
+scaleY(var(--tw-scale-y));
 }
 
 .grid-cols-1 {
@@ -847,6 +844,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
 }
 
 .justify-center {
@@ -894,6 +895,12 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(2rem * var(--tw-space-x-reverse));
+  margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -1010,6 +1017,11 @@ video {
 
 .p-6 {
   padding: 1.5rem;
+}
+
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .px-1 {
@@ -1384,6 +1396,10 @@ video {
     width: 80%;
   }
 
+  .sm\:w-72 {
+    width: 18rem;
+  }
+
   .sm\:grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1400,20 +1416,10 @@ video {
     align-items: center;
   }
 
-  .sm\:items-baseline {
-    align-items: baseline;
-  }
-
   .sm\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1.5rem * var(--tw-space-x-reverse));
     margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-  }
-
-  .sm\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(2rem * var(--tw-space-x-reverse));
-    margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .sm\:truncate {
@@ -1569,16 +1575,17 @@ video {
               onclick="document.getElementById('dialog-datacontract-yaml').showModal()"
               class="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
               <svg class="-ml-0.5 mr-1.5 h-5 w-5 text-gray-600" viewBox="-0.5 -0.5 24 24">
-                <path d="m4.3125 8.145833333333334 9.104166666666668 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 
-11.020833333333334 9.104166666666668 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 5.270833333333334 6.708333333333334 0" 
-fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 13.895833333333334 7.1875 0" fill="none" stroke="currentColor" stroke-linecap="round" 
-stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 16.770833333333336 3.8333333333333335 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
-stroke-width="1"></path><path d="M8.145833333333334 22.520833333333336h-6.708333333333334a0.9583333333333334 0.9583333333333334 0 0 1 -0.9583333333333334 -0.9583333333333334v-20.125a0.9583333333333334 
-0.9583333333333334 0 0 1 0.9583333333333334 -0.9583333333333334h12.739125a0.9583333333333334 0.9583333333333334 0 0 1 0.6775416666666667 0.28079166666666666L18.406708333333334 4.3125a0.9583333333333334 
-0.9583333333333334 0 0 1 0.28079166666666666 0.6775416666666667V8.145833333333334" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path 
-d="m15.045833333333333 21.370833333333334 -4.025 1.15 1.15 -4.025 6.879875 -6.879875a2.032625 2.032625 0 0 1 2.875 2.875Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" 
-stroke-width="1"></path><path d="m18.188208333333332 12.478458333333334 2.875 2.875" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path 
-d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
+                <path d="m4.3125 8.145833333333334 9.104166666666668 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path 
+d="m4.3125 11.020833333333334 9.104166666666668 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 5.270833333333334 
+6.708333333333334 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 13.895833333333334 7.1875 0" fill="none" 
+stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m4.3125 16.770833333333336 3.8333333333333335 0" fill="none" stroke="currentColor" 
+stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="M8.145833333333334 22.520833333333336h-6.708333333333334a0.9583333333333334 0.9583333333333334 0 0 1 
+-0.9583333333333334 -0.9583333333333334v-20.125a0.9583333333333334 0.9583333333333334 0 0 1 0.9583333333333334 -0.9583333333333334h12.739125a0.9583333333333334 0.9583333333333334 0 0 1 
+0.6775416666666667 0.28079166666666666L18.406708333333334 4.3125a0.9583333333333334 0.9583333333333334 0 0 1 0.28079166666666666 0.6775416666666667V8.145833333333334" fill="none" 
+stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m15.045833333333333 21.370833333333334 -4.025 1.15 1.15 -4.025 6.879875 -6.879875a2.032625
+2.032625 0 0 1 2.875 2.875Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m18.188208333333332 12.478458333333334 2.875 
+2.875" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" 
+stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path>
               </svg>
               Show YAML
             </button>
@@ -1690,7 +1697,7 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
   <div class="flex items-center gap-x-4">
     <div class="hidden sm:flex sm:flex-col">
       <dt class="text-sm font-medium text-gray-500">Host</dt>
-      <dd class="mt-1 text-sm text-gray-900">fake-sqlserver.example.com</dd>
+      <dd class="mt-1 text-sm text-gray-900">localhost</dd>
     </div>
   </div>
   
@@ -1710,7 +1717,7 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
   <div class="flex items-center gap-x-4">
     <div class="hidden sm:flex sm:flex-col">
       <dt class="text-sm font-medium text-gray-500">Database</dt>
-      <dd class="mt-1 text-sm text-gray-900">database</dd>
+      <dd class="mt-1 text-sm text-gray-900">master</dd>
     </div>
   </div>
   
@@ -1755,7 +1762,8 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
       <div class="sm:col-span-1">
         <dt class="text-sm font-medium text-gray-500">Usage</dt>
         <dd class="mt-1 text-sm text-gray-900" >
-          <span class="whitespace-pre-wrap">The file will be used in our pipeline to be sent to the Azure SQL Database. The file aims to support the business teams during their data merge.</span>
+          <span class="whitespace-pre-wrap">The file will be used in our pipeline to be sent to the Azure SQL Database. The file aims to support the business teams during their data 
+merge.</span>
         </dd>
       </div>
 
@@ -2123,7 +2131,7 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
         <div class="sm:col-span-1">
           <dt class="text-sm font-medium text-gray-500">Processed Timestamp field</dt>
           <dd class="mt-1 text-sm text-gray-900">
-            <span class="whitespace-pre-wrap font-mono">orders.processed_timestamp</span>
+            <span class="whitespace-pre-wrap font-mono">dbo.teamStructure</span>
           </dd>
         </div>
         
@@ -2215,7 +2223,7 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
               <div class="mt-2 overflow-hidden shadow sm:rounded-lg bg-white">
                 <div class="px-4 py-5 sm:px-6">
                   <div id="schema-specification" >
-                      <pre><code class="text-sm">"checks for teamStructure": |-
+                      <pre><code class="text-sm">"orders": |-
   [
       {
           "expectation_type": "expect_table_row_count_to_be_between",
@@ -2238,7 +2246,7 @@ d="m12.170833333333333 18.495833333333334 2.875 2.875" fill="none" stroke="curre
       </div>
 
       <div class="mt-6 text-sm text-gray-400">
-        Created at 28 May 2024 19:41:00 UTC with <a href="https://cli.datacontract.com" class="text-gray-400 hover:text-gray-500">Data Contract CLI</a> v0.10.4
+        Created at 31 May 2024 06:26:17 UTC with <a href="https://cli.datacontract.com" class="text-gray-400 hover:text-gray-500">Data Contract CLI</a> v0.10.6
       </div>
 
     </div>
@@ -2277,10 +2285,11 @@ info:
 servers:
   production:
     type: sqlserver
-    database: database
+    database: master
     schema_: dbo
-    host: fake-sqlserver.example.com
+    host: localhost
     port: 1433
+    driver: ODBC Driver 18 for SQL Server
 terms:
   usage: The file will be used in our pipeline to be sent to the Azure SQL Database.
     The file aims to support the business teams during their data merge.
@@ -2332,7 +2341,7 @@ examples:
 quality:
   type: great-expectations
   specification:
-    checks for teamStructure: "[\n    {\n        \"expectation_type\": \"expect_table_row_count_to_be_between\"\
+    orders: "[\n    {\n        \"expectation_type\": \"expect_table_row_count_to_be_between\"\
       ,\n        \"kwargs\": {\n            \"min_value\": 10\n        },\n      \
       \  \"meta\": {\n\n        }\n    }\n]"
 servicelevels:
@@ -2347,7 +2356,7 @@ servicelevels:
   latency:
     description: Data is available within 1 hour after the pipeline is triggered
     threshold: PT1H
-    processedTimestampField: orders.processed_timestamp
+    processedTimestampField: dbo.teamStructure
   frequency:
     description: Data is delivered once a day
     type: batch
@@ -2361,8 +2370,8 @@ servicelevels:
           </div>
           <div class="mt-5 sm:mt-6">
             <button type="button" onclick="document.getElementById('dialog-datacontract-yaml').close()"
-                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 
-focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Close</button>
+                    class="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline 
+focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Close</button>
           </div>
         </div>
       </div>
