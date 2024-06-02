@@ -3,7 +3,7 @@ targetScope = 'subscription'
 param resourceGroupName string = 'rgp-test'
 param location string = 'northeurope'
 
-param storageAccountName string = 'nedev'
+param storageAccountName string = 'saccnedev'
 param blobStorageName string = 'landing-zone'
 
 param webAppName string = 'web-app-test-xd'
@@ -23,6 +23,26 @@ module resourceGroupModule './resource-group-template.bicep' = {
   }
 }
 
+module storageAccountModule './storage-account-template.bicep' = {
+  name: '${storageAccountName}-storageAccountResource-create'
+  scope: resourceGroup(resourceGroupName)
+  dependsOn: [resourceGroupModule]
+  params: {
+    storageAccountName: storageAccountName
+    location: location
+  }
+}
+
+module blobStorageModule './blob-storage-template.bicep' = {
+  name: '${blobStorageName}-blobResource-create'
+  scope: resourceGroup(resourceGroupName)
+  dependsOn: [storageAccountModule]
+  params: {
+    storageAccountNameResource: storageAccountName
+    blobStorageName: blobStorageName
+  }
+}
+
 module storageAccountModule './blob-storage-template.bicep' = {
   name: '${resourceGroupName}-storageAccountResource-create'
   scope: resourceGroup(resourceGroupName)
@@ -33,7 +53,6 @@ module storageAccountModule './blob-storage-template.bicep' = {
     blobStorageName: blobStorageName
   }
 }
-
 module webAppModule './web-app-template.bicep' = {
   name: '${resourceGroupName}-webAppResource-create'
   scope: resourceGroup(resourceGroupName)

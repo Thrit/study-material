@@ -2,7 +2,7 @@ param storageAccountName string
 param location string
 
 resource storageAccountNameResource 'Microsoft.Storage/storageAccounts@2023-01-01' = {
-  name: 'sacc${storageAccountName}'
+  name: storageAccountName
   location: location
   sku: {
     name: 'Standard_LRS'
@@ -43,3 +43,4 @@ resource storageAccountNameResource 'Microsoft.Storage/storageAccounts@2023-01-0
 }
 
 output storageAccountNameResourceId string = storageAccountNameResource.id
+output storageAccountNameResourceName string = storageAccountNameResource.name
