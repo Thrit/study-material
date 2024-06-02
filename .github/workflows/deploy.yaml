@@ -3,7 +3,7 @@ name: Deploy Bicep Template
 on:
   push:
     branches:
-      - main  # Deploy on push to the main branch
+      - main
   pull_request:
     branches:
       - main
@@ -16,15 +16,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Setup Azure CLI
-      uses: azure/cli@v1
-      with:
-        azcliversion: 2.30.0  # Specify the Azure CLI version
-
     - name: Login to Azure
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}  # Store your Azure credentials in GitHub secrets
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Deploy Bicep template
       run: |
