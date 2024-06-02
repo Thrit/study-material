@@ -1,22 +1,10 @@
+param appServicePlanName string
 param webAppName string
 param location string
-param appServicePlanName string
-param skuName string
-param skuTier string
 param linuxFxVersion string = 'PYTHON|3.11'
 
-// Create the App Service Plan (Server Farm)
-resource appServicePlanResource 'Microsoft.Web/serverfarms@2021-02-01' = {
+resource appServicePlanParent 'Microsoft.Web/serverfarms@2021-02-01' existing = {
   name: appServicePlanName
-  location: location
-  sku: {
-    name: skuName
-    tier: skuTier
-  }
-  kind: 'linux'
-  properties: {
-    reserved: true
-  }
 }
 
 resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
@@ -37,7 +25,7 @@ resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
         hostType: 'Repository'
       }
     ]
-    serverFarmId: appServicePlanResource.id
+    serverFarmId: appServicePlanParent.id
     reserved: true
     isXenon: false
     hyperV: false

@@ -2,17 +2,15 @@ targetScope = 'subscription'
 
 param resourceGroupName string = 'rgp-test'
 param location string = 'northeurope'
-
 param storageAccountName string = 'saccnedev'
 param blobStorageName string = 'landing-zone'
-
 param webAppName string = 'web-app-test-xd'
-param appServiceName string = 'asp-test'
+param appServicePlanName string = 'asp-test'
 param skuName string = 'F1'
 param skuTier string = 'Free'
-
 param vaultsName string = 'us-vault'
 
+// az deployment sub create -l northeurope --template-file ./iac-resources/main.bicep
 
 module resourceGroupModule './resource-group-template.bicep' = {
   name: '${resourceGroupName}-resourceGroupResource-create'
@@ -43,31 +41,31 @@ module blobStorageModule './blob-storage-template.bicep' = {
   }
 }
 
-module storageAccountModule './blob-storage-template.bicep' = {
-  name: '${resourceGroupName}-storageAccountResource-create'
+module appServicePlanModule './app-service-plan-template.bicep' = {
+  name: '${appServicePlanName}-webAppResource-create'
   scope: resourceGroup(resourceGroupName)
   dependsOn: [resourceGroupModule]
   params: {
-    storageAccountName: storageAccountName
     location: location
-    blobStorageName: blobStorageName
-  }
-}
-module webAppModule './web-app-template.bicep' = {
-  name: '${resourceGroupName}-webAppResource-create'
-  scope: resourceGroup(resourceGroupName)
-  dependsOn: [resourceGroupModule]
-  params: {
-    webAppName: webAppName
-    location: location
-    appServicePlanName: appServiceName
+    appServicePlanName: appServicePlanName
     skuName: skuName
     skuTier: skuTier
   }
 }
 
+module webAppModule './web-app-template.bicep' = {
+  name: '${webAppName}-webAppResource-create'
+  scope: resourceGroup(resourceGroupName)
+  dependsOn: [resourceGroupModule, appServicePlanModule]
+  params: {
+    webAppName: webAppName
+    location: location
+    appServicePlanName: appServicePlanName
+  }
+}
+
 module keyVaultModule './key-vault-template.bicep' = {
-  name: '${resourceGroupName}-keyVaultResource-create'
+  name: '${vaultsName}-keyVaultResource-create'
   scope: resourceGroup(resourceGroupName)
   dependsOn: [resourceGroupModule]
   params: {
@@ -75,5 +73,3 @@ module keyVaultModule './key-vault-template.bicep' = {
     location: location
   }
 }
-
-// az deployment sub create -l northeurope --template-file ./iac-resources/main.bicep
