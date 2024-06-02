@@ -5,7 +5,7 @@ var vaultURL = environment().gallery
 /* 'https://${vaultsName}.vault.azure.net/' */
 
 resource vaultsNameResource 'Microsoft.KeyVault/vaults@2023-07-01' = {
-  name: 'kv-${vaultsName}'
+  name: vaultsName
   location: location
   properties: {
     sku: {

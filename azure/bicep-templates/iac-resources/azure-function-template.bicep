@@ -1,5 +1,5 @@
+param functionAppName string
 param appServicePlanName string
-param webAppName string
 param location string
 param linuxFxVersion string
 
@@ -7,20 +7,23 @@ resource appServicePlanParent 'Microsoft.Web/serverfarms@2021-02-01' existing = 
   name: appServicePlanName
 }
 
-resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
-  name: webAppName
+resource functionAppResource 'Microsoft.Web/sites@2023-12-01' = {
+  name: functionAppName
   location: location
-  kind: 'app,linux'
+  tags: {
+    'hidden-link: /app-insights-resource-id': '/subscriptions/0c26b717-422a-40bc-85ab-21e2bc5bfaad/resourceGroups/rgp-test/providers/Microsoft.Insights/components/${functionAppName}'
+  }
+  kind: 'functionapp,linux'
   properties: {
     enabled: true
     hostNameSslStates: [
       {
-        name: '${webAppName}.azurewebsites.net'
+        name: '${functionAppName}.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Standard'
       }
       {
-        name: '${webAppName}.scm.azurewebsites.net'
+        name: '${functionAppName}.scm.azurewebsites.net'
         sslState: 'Disabled'
         hostType: 'Repository'
       }
@@ -40,7 +43,7 @@ resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
       acrUseManagedIdentityCreds: false
       alwaysOn: false
       http20Enabled: false
-      functionAppScaleLimit: 0
+      functionAppScaleLimit: 200
       minimumElasticInstanceCount: 0
     }
     scmSiteAlsoStopped: false
@@ -49,7 +52,7 @@ resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
     clientCertMode: 'Required'
     hostNamesDisabled: false
     vnetBackupRestoreEnabled: false
-    containerSize: 0
+    containerSize: 1536
     dailyMemoryTimeQuota: 0
     httpsOnly: true
     redundancyMode: 'None'
@@ -59,24 +62,24 @@ resource webAppResource 'Microsoft.Web/sites@2023-12-01' = {
   }
 }
 
-resource webAppName_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-12-01' = {
-  parent: webAppResource
+resource functionApp_ftp 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-12-01' = {
+  parent: functionAppResource
   name: 'ftp'
   properties: {
     allow: false
   }
 }
 
-resource webAppName_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-12-01' = {
-  parent: webAppResource
+resource functionApp_scm 'Microsoft.Web/sites/basicPublishingCredentialsPolicies@2023-12-01' = {
+  parent: functionAppResource
   name: 'scm'
   properties: {
     allow: false
   }
 }
 
-resource webAppName_web 'Microsoft.Web/sites/config@2023-12-01' = {
-  parent: webAppResource
+resource functionApp_web 'Microsoft.Web/sites/config@2023-12-01' = {
+  parent: functionAppResource
   name: 'web'
   properties: {
     numberOfWorkers: 1
@@ -89,25 +92,18 @@ resource webAppName_web 'Microsoft.Web/sites/config@2023-12-01' = {
       'iisstart.htm'
       'default.aspx'
       'index.php'
-      'hostingstart.html'
-    ]
-    appSettings: [
-      {
-        name: 'WEBSITE_RUN_FROM_PACKAGE'
-        value: '1'
-      }
     ]
     netFrameworkVersion: 'v4.0'
+    linuxFxVersion: linuxFxVersion
     requestTracingEnabled: false
     remoteDebuggingEnabled: false
     httpLoggingEnabled: false
     acrUseManagedIdentityCreds: false
     logsDirectorySizeLimit: 35
-    linuxFxVersion: linuxFxVersion
     detailedErrorLoggingEnabled: false
-    publishingUsername: webAppName
+    publishingUsername: functionAppName
     scmType: 'None'
-    use32BitWorkerProcess: true
+    use32BitWorkerProcess: false
     webSocketsEnabled: false
     alwaysOn: false
     managedPipelineMode: 'Integrated'
@@ -126,6 +122,12 @@ resource webAppName_web 'Microsoft.Web/sites/config@2023-12-01' = {
     vnetRouteAllEnabled: false
     vnetPrivatePortsCount: 0
     publicNetworkAccess: 'Enabled'
+    cors: {
+      allowedOrigins: [
+        'https://portal.azure.com'
+      ]
+      supportCredentials: false
+    }
     localMySqlEnabled: false
     ipSecurityRestrictions: [
       {
@@ -151,18 +153,18 @@ resource webAppName_web 'Microsoft.Web/sites/config@2023-12-01' = {
     scmMinTlsVersion: '1.2'
     ftpsState: 'FtpsOnly'
     preWarmedInstanceCount: 0
-    elasticWebAppScaleLimit: 0
+    functionAppScaleLimit: 200
     functionsRuntimeScaleMonitoringEnabled: false
     minimumElasticInstanceCount: 0
     azureStorageAccounts: {}
   }
 }
 
-resource webAppName_net 'Microsoft.Web/sites/hostNameBindings@2023-12-01' = {
-  parent: webAppResource
-  name: '${webAppName}.azurewebsites.net'
+resource functionApp_net 'Microsoft.Web/sites/hostNameBindings@2023-12-01' = {
+  parent: functionAppResource
+  name: '${functionAppName}.azurewebsites.net'
   properties: {
-    siteName: webAppName
+    siteName: functionAppName
     hostNameType: 'Verified'
   }
 }

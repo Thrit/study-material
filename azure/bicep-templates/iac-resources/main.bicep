@@ -6,9 +6,11 @@ param storageAccountName string = 'saccnedev'
 param blobStorageName string = 'landing-zone'
 param webAppName string = 'web-app-test-xd'
 param appServicePlanName string = 'asp-test'
-param skuName string = 'F1'
-param skuTier string = 'Free'
-param vaultsName string = 'us-vault'
+param skuName string = 'B1'
+param skuTier string = 'Basic'
+param vaultsName string = 'kv-ne-vault'
+param linuxFxVersion string = 'PYTHON|3.11'
+param functionAppName string = 'function-app-test-xd'
 
 // az deployment sub create -l northeurope --template-file ./iac-resources/main.bicep
 
@@ -61,6 +63,19 @@ module webAppModule './web-app-template.bicep' = {
     webAppName: webAppName
     location: location
     appServicePlanName: appServicePlanName
+    linuxFxVersion: linuxFxVersion
+  }
+}
+
+module functionAppModule './azure-function-template.bicep' = {
+  name: '${functionAppName}-webAppResource-create'
+  scope: resourceGroup(resourceGroupName)
+  dependsOn: [resourceGroupModule, appServicePlanModule]
+  params: {
+    functionAppName: functionAppName
+    location: location
+    appServicePlanName: appServicePlanName
+    linuxFxVersion: linuxFxVersion
   }
 }
 
