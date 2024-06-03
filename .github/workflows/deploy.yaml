@@ -30,14 +30,14 @@ jobs:
           inlineScript: |
             az account show
 
-    - name: Find main.bicep file
-      run: |
-        if sudo find / -name "main.bicep"; then
-          echo "main.bicep file found"
-        else
-          echo "main.bicep file not found"
-          exit 1
-        fi
+      - name: Find main.bicep file
+        run: |
+          if sudo find / -name "main.bicep"; then
+            echo "main.bicep file found"
+          else
+            echo "main.bicep file not found"
+            exit 1
+          fi
 
       - name: Print current path
         run: ls -la
