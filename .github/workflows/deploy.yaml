@@ -32,6 +32,8 @@ jobs:
     environment: DEV
     runs-on: ubuntu-latest
     steps:
+      - name: List files in the repository
+        run: ls -R
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
