@@ -50,7 +50,6 @@ jobs:
             echo "::set-output name=filepath::$file_path"
           fi
 
-  deploy:
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
