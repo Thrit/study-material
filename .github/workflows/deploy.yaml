@@ -34,7 +34,9 @@ jobs:
         run: pwd
 
       - name: List files in current directory
-        run: ls -la
+        run: |
+          cd ..
+          ls -la
 
       - name: Deploy Bicep template
         run: |
