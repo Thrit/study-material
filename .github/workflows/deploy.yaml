@@ -12,10 +12,15 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  job:
+  build:
     environment: DEV
     runs-on: ubuntu-latest
     steps:
+      - name: Check repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+
       - name: Azure login
         uses: azure/login@v2
         with:
@@ -45,6 +50,7 @@ jobs:
             echo "::set-output name=filepath::$file_path"
           fi
 
+  deploy:
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
