@@ -10,9 +10,6 @@ resource appServicePlanParent 'Microsoft.Web/serverfarms@2021-02-01' existing = 
 resource functionAppResource 'Microsoft.Web/sites@2023-12-01' = {
   name: functionAppName
   location: location
-  tags: {
-    'hidden-link: /app-insights-resource-id': '/subscriptions/0c26b717-422a-40bc-85ab-21e2bc5bfaad/resourceGroups/rgp-test/providers/Microsoft.Insights/components/${functionAppName}'
-  }
   kind: 'functionapp,linux'
   properties: {
     enabled: true
