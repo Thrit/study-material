@@ -31,10 +31,11 @@ jobs:
             az account show
 
       - name: Print current path
-        run: pwd
+        run: ls -la
 
       - name: List files in current directory
         run: |
+          cd ..
           cd ..
           ls -la
 
