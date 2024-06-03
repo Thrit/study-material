@@ -35,21 +35,6 @@ jobs:
           inlineScript: |
             az account show
 
-      - name: Print current path
-        run: ls -la -R
-
-      - name: Find main.bicep file
-        id: find_file
-        run: |
-          file_path=$(find . -name "main.bicep")
-          if [ -z "$file_path" ]; then
-            echo "main.bicep file not found"
-            exit 1
-          else
-            echo "main.bicep file found at $file_path"
-            echo "::set-output name=filepath::$file_path"
-          fi
-
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
