@@ -21,8 +21,27 @@ jobs:
         with:
           repository: ${{ github.repository }}
 
-      - name: Run Bicep Linter
-        uses: synergy-au/bicep-lint-action@v1
+      - name: Lint Bicep and Bicepparam files
+        run: |
+          az bicep install
+          success="true"
+          CHANGED_FOLDERS=$(git diff HEAD~1 --name-only | xargs dirname)
+          echo "📂 Changed folders:"
+          echo $CHANGED_FOLDERS
+          FILES=$(find $CHANGED_FOLDERS \( -name "*.bicep" -o -name "*.bicepparam" \))
+          echo "🔍 Files to lint:"
+          echo $FILES
+          for file in $FILES; do
+          { # 'try' block
+            echo "🎗️ Linting $file" && az bicep lint --file $file
+          } || { # 'catch' block
+            success="false"
+          }
+          done
+          if [ "$success" = "false" ]; then
+            echo "::error::❌ Linting of the Bicep files failed."
+            exit 1;
+          fi;
 
       - name: Azure login
         uses: azure/login@v2
