@@ -30,6 +30,12 @@ jobs:
           inlineScript: |
             az account show
 
+      - name: Print current path
+        run: pwd
+
+      - name: List files in current directory
+        run: ls -la
+
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
