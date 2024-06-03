@@ -26,7 +26,11 @@ jobs:
         with:
           inlineScript: |
             az bicep install
-            az bicep lint --file ../study-material/azure/bicep-templates/iac-resources/main.bicep
+            az bicep upgrade
+            for file in ../study-material/azure/bicep-templates/iac-resources/*.bicep; do
+              echo "Linting $file"
+              az bicep lint --file $file
+            done
 
 
       - name: Azure login
