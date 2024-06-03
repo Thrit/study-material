@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List files in the repository
-        run: ls -R
+        run: ls -la
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
