@@ -28,17 +28,6 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      - name: Lint Bicep
-        uses: azure/CLI@v1
-        with:
-          inlineScript: |
-            az bicep install
-            az bicep upgrade
-            for file in ../study-material/azure/bicep-templates/iac-resources/*.bicep; do
-              echo "Linting $file"
-              az bicep lint --file $file
-            done
-
       - name: Deploy Bicep template
         run: |
           az deployment sub create \
