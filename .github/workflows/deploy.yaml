@@ -30,18 +30,6 @@ jobs:
           inlineScript: |
             az account show
 
-      - name: Find main.bicep file
-        id: find_file
-        run: |
-          file_path=$(sudo find / -name "main.bicep" 2>/dev/null)
-          if [ -z "$file_path" ]; then
-            echo "main.bicep file not found"
-            exit 1
-          else
-            echo "main.bicep file found at $file_path"
-            echo "::set-output name=filepath::$file_path"
-          fi
-
       - name: Print current path
         run: ls -la
 
