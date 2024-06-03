@@ -23,11 +23,18 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-      # Deploy Bicep file
-      - name: deploy
-        uses: azure/arm-deploy@v1
+      - name: Azure CLI script
+        uses: azure/cli@v2
         with:
-          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          resourceGroupName: 'rgp-test'
-          region: northeurope
-          template: ../study-material/azure/bicep-templates/iac-resources/main.bicep
+          azcliversion: latest
+          inlineScript: |
+            az account show
+
+      - name: Print current path
+        run: ls -la
+
+      - name: Deploy Bicep template
+        run: |
+          az deployment sub create \
+            -l northeurope \
+            --template-file ../azure/bicep-templates/iac-resources/main.bicep
