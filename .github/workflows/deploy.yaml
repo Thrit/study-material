@@ -30,8 +30,8 @@ jobs:
           inlineScript: |
             az account show
 
-    - name: Deploy Bicep template
-      run: |
-        az deployment sub create \
-          -l northeurope \
-          --template-file ./iac-resources/main.bicep
+      - name: Deploy Bicep template
+        run: |
+          az deployment sub create \
+            -l northeurope \
+            --template-file ./iac-resources/main.bicep
