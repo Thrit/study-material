@@ -25,15 +25,19 @@ jobs:
         run: |
           az bicep install
           success="true"
-          CHANGED_FOLDERS=$(git diff HEAD~1 --name-only | xargs dirname)
-          echo "📂 Changed folders:"
-          echo "$CHANGED_FOLDERS"
-          FILES=$(find "$CHANGED_FOLDERS" \( -name "*.bicep" -o -name "*.bicepparam" \))
-          echo "🔍 Files to lint:"
-          echo "$FILES"
-          for file in $FILES; do
-            echo "🎗️ Linting $file" && az bicep lint --file "$file" || success="false"
-          done
+          if [[ $(git rev-parse --verify HEAD) ]]; then
+            CHANGED_FOLDERS=$(git diff HEAD~1 --name-only | xargs dirname)
+            echo "📂 Changed folders:"
+            echo "$CHANGED_FOLDERS"
+            FILES=$(find "$CHANGED_FOLDERS" \( -name "*.bicep" -o -name "*.bicepparam" \))
+            echo "🔍 Files to lint:"
+            echo "$FILES"
+            for file in $FILES; do
+              echo "🎗️ Linting $file" && az bicep lint --file "$file" || success="false"
+            done
+          else
+            echo "No commits in the repository. Skipping linting."
+          fi
           if [ "$success" = "false" ]; then
             echo "::error::❌ Linting of the Bicep files failed."
             exit 1
