@@ -30,6 +30,15 @@ jobs:
           inlineScript: |
             az account show
 
+    - name: Find main.bicep file
+      run: |
+        if sudo find / -name "main.bicep"; then
+          echo "main.bicep file found"
+        else
+          echo "main.bicep file not found"
+          exit 1
+        fi
+
       - name: Print current path
         run: ls -la
 
@@ -39,8 +48,10 @@ jobs:
           cd ..
           ls -la
 
-      - name: Deploy Bicep template
-        run: |
-          az deployment sub create \
-            -l northeurope \
-            --template-file ../azure/bicep-templates/iac-resources/main.bicep
+      # Deploy Bicep file
+      - name: deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          region: northeurope
+          template: ../azure/bicep-templates/iac-resources/main.bicep
