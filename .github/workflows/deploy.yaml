@@ -12,8 +12,8 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  environment: DEV
-  build-and-deploy:
+  job:
+    environment: DEV
     runs-on: ubuntu-latest
     steps:
       - name: Azure login
