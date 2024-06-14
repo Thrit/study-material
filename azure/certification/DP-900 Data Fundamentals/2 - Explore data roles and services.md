@@ -38,7 +38,11 @@ Includes managed services for popular open-source databases:
 3. **Azure Database for PostgreSQL**
 
 ### Azure Cosmos DB
-- NoSQL database.
+Support different kinds of NoSQL database engines via an API:
+  - Core/Cassandra SQL API: A document db, SQL to query documents
+  - MongoDB API: Document db
+  - Azure Table API: Key/Value db
+  - Gremlin API: Graph db
 
 ### Azure Storage
 Core Azure service:

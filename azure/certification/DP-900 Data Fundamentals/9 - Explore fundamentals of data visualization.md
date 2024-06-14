@@ -10,9 +10,15 @@
 ## [Unit 2: Describe Power BI Tools and Workflow](https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/2-power-bi)
 
 - Microsoft Power BI suite: Tools and services for building interactive data visualizations
-- Power BI Desktop: Define analytical models
-- Power BI Service: Serve data
-- Data Factory: Run ETL jobs
+- Power BI Desktop:
+  - Stand alone application for data visualization
+  - You can do data modelling
+  - Connect to many data sources
+  - Create interactive reports
+- Power BI Portal/Power BI Service: Serve data:
+  - A web UI for creating interactive dashboards
+- Power BI Report builder:
+  - Create paginated reports (printable reports)
 
 ## [Unit 3: Describe Core Concepts of Data Modeling](https://learn.microsoft.com/en-us/training/modules/explore-fundamentals-data-visualization/3-data-modeling)
 
