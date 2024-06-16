@@ -1,5 +1,3 @@
-import pandas as pd
-
 from src.api_extractor import ApiExtractor
 from src.data_loader import dataLoader
 
