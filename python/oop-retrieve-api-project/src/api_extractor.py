@@ -8,12 +8,12 @@ class ApiExtractor:
     def __init__(self, api_url: str) -> None:
         self.api_url = api_url
 
-    def connect_api(self) -> json:
+    def extract_api(self) -> pd.DataFrame:
         response = requests.get(self.api_url)
         response.raise_for_status()
-        return response.json()
+        return self.__json_to_dataframe(response.json())
 
-    def json_to_dataframe(self, json_data: json) -> pd.DataFrame:
+    def __json_to_dataframe(self, json_data: json) -> pd.DataFrame:
         data = pd.DataFrame(json_data["result"]["records"])
         data = self.__data_preparation(data)
         return data
