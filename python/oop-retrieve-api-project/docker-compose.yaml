@@ -1,0 +1,27 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: "postgres"
+    command: postgres -c 'max_connections=1000'
+    ports:
+      - '5432:5432'
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'admin'
+      POSTGRES_USER: 'admin'
+      POSTGRES_DB: 'postgres'
+    volumes:
+      - /var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:7.8
+    container_name: "pgadmin"
+    restart: always
+    ports:
+      - '8080:80'
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@toanthien.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    volumes:
+      - /var/lib/pgadmin

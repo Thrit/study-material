@@ -1,25 +1,17 @@
-import json
-import requests
+import pandas as pd
 
-#load_dotenv()
+from src.api_extractor import ApiExtractor
+from src.data_loader import dataLoader
 
 # https://data.smartdublin.ie/dataset/dublin-city-centre-footfall-counters/resource/8a570347-9541-4adc-a1eb-21323c733d58
 
-class DataLoader:
-    def __init__(self, api_url):
-        self.api_url = api_url
+if __name__ == "__main__":
+    api_url = "https://data.smartdublin.ie/api/3/action/datastore_search?resource_id=8a570347-9541-4adc-a1eb-21323c733d58&limit=5"
 
-    def connect_api(self):
-        response = requests.get(self.api_url)
-        response.raise_for_status()
-        return json.dumps(response.json())
+    api_extractor = ApiExtractor(api_url)
+    json_data = api_extractor.connect_api()
+    df_pedestrian_footfall = api_extractor.json_to_dataframe(json_data)
 
-    def print_data(self):
-        data = self.connect_api()
-        print(data)
-
-
-if __name__=='__main__':
-    api_url = 'https://data.smartdublin.ie/api/3/action/datastore_search?resource_id=8a570347-9541-4adc-a1eb-21323c733d58&limit=5&q=title:jones'  
-    data_loader = DataLoader(api_url)
+    data_loader = dataLoader()
+    data_loader.load_data(df_pedestrian_footfall)
     data_loader.print_data()
