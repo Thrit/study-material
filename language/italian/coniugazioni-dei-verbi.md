@@ -78,6 +78,78 @@ Verbo Invitare
   - Voi invitate Giulia
   - Loro invitano Giulia
 
+Verbo Mangiare
+  - Io mangio il tiramisù
+  - Tu mangi il tiramisù
+  - lui/lei/Lei mangia il tiramisù
+  - Noi mangiamo il tiramisù
+  - Voi mangiate il tiramisù
+  - Loro mangiano il tiramisù
+
+Verbo Fare
+  - Io faccio i compiti
+  - Tu fai i compiti
+  - lui/lei/Lei fa i compiti
+  - Noi facciamo i compiti
+  - Voi fate i compiti
+  - Loro fanno i compiti
+
+Verbo Prendere
+  - Io prendo un caffè
+  - Tu prendi un caffè
+  - lui/lei/Lei prende un caffè
+  - Noi prendiamo un caffè
+  - Voi prendete un caffè
+  - Loro prendono un caffè
+
+Verbo Chiedere
+  - Io chiedo aiuto
+  - Tu chiedi aiuto
+  - lui/lei/Lei chiede aiuto
+  - Noi chiediamo aiuto
+  - Voi chiedete aiuto
+  - Loro chiedono aiuto
+
+Verbo Conoscere
+  - Io conosco Pietro
+  - Tu conosci Pietro
+  - lui/lei/Lei conosce Pietro
+  - Noi conosciamo Pietro
+  - Voi conoscete Pietro
+  - Loro conoscono Pietro
+
+Verbo Rimanere (Ficar/permanecer)
+  - Io rimango a casa
+  - Tu rimani a casa
+  - lui/lei/Lei rimane a casa
+  - Noi rimaniamo a casa
+  - Voi rimanete a casa
+  - Loro rimangono a casa
+
+Verbo
+  - Io
+  - Tu 
+  - lui/lei/Lei 
+  - Noi
+  - Voi
+  - Loro
+
+Verbo
+  - Io
+  - Tu 
+  - lui/lei/Lei 
+  - Noi
+  - Voi
+  - Loro
+
+Verbo
+  - Io
+  - Tu 
+  - lui/lei/Lei 
+  - Noi
+  - Voi
+  - Loro
+
 Verbo
   - Io
   - Tu 
