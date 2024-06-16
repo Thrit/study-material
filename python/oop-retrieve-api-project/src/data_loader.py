@@ -6,7 +6,6 @@ from sqlalchemy import create_engine
 
 load_dotenv()
 
-
 class dataLoader:
     def __init__(self) -> None:
         postgres_user = os.environ["POSTGRES_USER"]
