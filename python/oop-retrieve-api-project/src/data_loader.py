@@ -62,5 +62,5 @@ class dataLoader:
         create_engine: SQLAlchemy engine connected to the specified PostgreSQL database.
         """
         return create_engine(
-            f"postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}"
+            f'postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}'
         )
