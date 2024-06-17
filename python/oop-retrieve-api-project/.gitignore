@@ -12,6 +12,7 @@ __pycache__/
 .vscode/
 .idea/
 .ruff_cache/
+.pytest_cache/
 
 # csv files
 data/

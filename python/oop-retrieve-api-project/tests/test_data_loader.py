@@ -2,12 +2,10 @@ import os
 import sys
 
 sys.path.append("../")
-import pandas as pd
 import pytest
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
-from unittest.mock import patch
 from src.data_loader import dataLoader
 
 load_dotenv()

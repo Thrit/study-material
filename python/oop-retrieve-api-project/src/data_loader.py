@@ -6,14 +6,15 @@ from sqlalchemy import create_engine
 
 load_dotenv()
 
+
 class dataLoader:
     """
-    A class to load data into a PostgreSQL database and retrieve data from it.
+    Load data into a PostgreSQL database and retrieve data from it.
     """
 
     def __init__(self) -> None:
         """
-        Initialize the dataLoader with a PostgreSQL connection using environment variables.
+        Initialize the dataLoader with a PostgreSQL.
         """
         postgres_user = os.environ["POSTGRES_USER"]
         postgres_password = os.environ["POSTGRES_PASSWORD"]
@@ -28,12 +29,12 @@ class dataLoader:
     def load_data(self, data: pd.DataFrame) -> None:
         """
         Load data into the PostgreSQL table named 'test'.
-        
+
         Parameters:
         data (pd.DataFrame): DataFrame containing the data to be loaded into the database.
         """
-        data.to_sql('test', self.engine, if_exists='replace', index=False)
-    
+        data.to_sql("test", self.engine, if_exists="replace", index=False)
+
     def print_data(self):
         """
         Print the data from the PostgreSQL table named 'test'.
@@ -50,17 +51,17 @@ class dataLoader:
     ) -> create_engine:
         """
         Create a SQLAlchemy engine connection to the PostgreSQL database.
-        
+
         Parameters:
         postgres_user (str): PostgreSQL username.
         postgres_password (str): PostgreSQL password.
         postgres_db (str): PostgreSQL database name.
         postgres_host (str): PostgreSQL host.
         postgres_port (str): PostgreSQL port.
-        
+
         Returns:
         create_engine: SQLAlchemy engine connected to the specified PostgreSQL database.
         """
         return create_engine(
-            f'postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}'
+            f"postgresql://{postgres_user}:{postgres_password}@{postgres_host}:{postgres_port}/{postgres_db}"
         )
