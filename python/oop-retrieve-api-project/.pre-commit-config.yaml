@@ -1,18 +1,16 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
-  - repo: https://github.com/ambv/black
-    rev: 24.4.2
-    hooks:
-      - id: black
   - repo: https://github.com/astral-sh/ruff-pre-commit
     # Ruff version.
     rev: v0.4.9
     hooks:
       # Run the linter.
       - id: ruff
+        files: ^oop-retrieve-api-project/
       # Run the formatter.
       - id: ruff-format
+        files: ^oop-retrieve-api-project/
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
