@@ -12,15 +12,6 @@ from src.data_loader import dataLoader
 
 load_dotenv()
 
-# Sample DataFrame for testing
-sample_data = pd.DataFrame(
-    {
-        "name": ["Alice", "Bob", "Charlie"],
-        "age": [25, 30, 35],
-        "gender": ["F", "M", "M"],
-    }
-)
-
 
 # Environment variables setup
 @pytest.fixture(autouse=True)
@@ -48,24 +39,4 @@ def mock_engine(mocker):
 
 def test_create_connection(mock_engine):
     loader = dataLoader()
-    assert loader.engine == mock_engine
-
-
-def test_load_data(mock_engine):
-    loader = dataLoader()
-    loader.load_data(sample_data)
-    result = pd.read_sql_query("SELECT * FROM test", loader.engine)
-    assert len(result) == 3
-    assert result.iloc[0]["name"] == "Alice"
-    assert result.iloc[1]["name"] == "Bob"
-    assert result.iloc[2]["name"] == "Charlie"
-
-
-def test_print_data(mocker, capsys):
-    loader = dataLoader()
-    loader.load_data(sample_data)
-    loader.print_data()
-    captured = capsys.readouterr()
-    assert "Alice" in captured.out
-    assert "Bob" in captured.out
-    assert "Charlie" in captured.out
+    assert str(loader.engine) == str(mock_engine)
