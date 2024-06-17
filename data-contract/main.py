@@ -4,13 +4,13 @@ import pyodbc
 # docker run --platform linux/amd64 -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=admin@12345' -p 1433:1433 --name sql_server -d mcr.microsoft.com/mssql/server:2022-latest
 
 # Define the connection parameters
-server = 'localhost,1433'
-database = 'master'
-username = 'sa'
-password = 'admin@12345'
+server = "localhost,1433"
+database = "master"
+username = "sa"
+password = "admin@12345"
 
 # Create a connection string
-connection_string = f'DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;'
+connection_string = f"DRIVER={{ODBC Driver 18 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password};TrustServerCertificate=yes;"
 
 # Establish the connection
 try:
@@ -43,7 +43,7 @@ try:
 
     # Execute a query to verify the insert
     cursor.execute("SELECT * FROM dbo.teamStructure;")
-    
+
     # Fetch and display the results
     row = cursor.fetchone()
     while row:

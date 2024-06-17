@@ -31,7 +31,7 @@ Open-source data integration tool that moves data from one system to another
 ## Sync modes
 `<name_1> | <name_2>`
 
-`<name_1>`: How Airbyte reads data from the source  
+`<name_1>`: How Airbyte reads data from the source
 `<name_2>`: How Airbyte writes data into the destination
 
 ### Incremental | Append + Deduplicated

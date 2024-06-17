@@ -14,13 +14,14 @@ connection_string = f"jdbc:postgresql://{DATABASE_HOST}:{DATABASE_PORT}/{DATABAS
 # Create the SQLAlchemy engine
 engine = create_engine(connection_string)
 
+
 # Connect to the database and retrieve the table names
 def get_tables(engine):
     try:
         # Reflect the metadata
         metadata = MetaData()
         metadata.reflect(bind=engine)
-        
+
         # Get table names
         tables = metadata.tables.keys()
         return tables
@@ -28,11 +29,12 @@ def get_tables(engine):
         print(f"Error retrieving tables: {error}")
         return []
 
+
 def main():
     try:
         # Get tables
         tables = get_tables(engine)
-        
+
         # Print table names
         if tables:
             print("Available tables:")
@@ -42,6 +44,7 @@ def main():
             print("No tables found.")
     except Exception as error:
         print(f"Error: {error}")
+
 
 if __name__ == "__main__":
     main()

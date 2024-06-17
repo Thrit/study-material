@@ -128,32 +128,32 @@ Verbo Rimanere (Ficar/permanecer)
 
 Verbo
   - Io
-  - Tu 
-  - lui/lei/Lei 
+  - Tu
+  - lui/lei/Lei
   - Noi
   - Voi
   - Loro
 
 Verbo
   - Io
-  - Tu 
-  - lui/lei/Lei 
+  - Tu
+  - lui/lei/Lei
   - Noi
   - Voi
   - Loro
 
 Verbo
   - Io
-  - Tu 
-  - lui/lei/Lei 
+  - Tu
+  - lui/lei/Lei
   - Noi
   - Voi
   - Loro
 
 Verbo
   - Io
-  - Tu 
-  - lui/lei/Lei 
+  - Tu
+  - lui/lei/Lei
   - Noi
   - Voi
   - Loro
